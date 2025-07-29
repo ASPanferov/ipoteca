@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Промпт Арена - IpotekaBank AI Интенсив</title>
+    <title>AI Тренажёр - IpotekaBank</title>
     <style>
         * {
             margin: 0;
@@ -11,10 +11,22 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-green: #7CB342;
+            --dark-green: #689F38;
+            --light-green: #8BC34A;
+            --accent-orange: #FF7043;
+            --dark-gray: #2E2E2E;
+            --light-gray: #F5F5F5;
+            --text-gray: #666;
+            --white: #FFFFFF;
+            --border-gray: #E0E0E0;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f8f9fa;
-            color: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--light-gray);
+            color: var(--dark-gray);
             line-height: 1.6;
         }
 
@@ -33,8 +45,8 @@
         .header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
             border-radius: 20px;
             color: white;
         }
@@ -72,9 +84,9 @@
 
         .card {
             background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
 
@@ -116,7 +128,7 @@
 
         .input-group input:focus, .input-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--primary-green);
         }
 
         .input-group textarea {
@@ -138,22 +150,25 @@
         }
 
         .btn-primary {
-            background: #667eea;
+            background: var(--primary-green);
             color: white;
+            border-radius: 25px;
         }
 
         .btn-primary:hover {
-            background: #5a5dca;
+            background: var(--dark-green);
             transform: translateY(-1px);
         }
 
         .btn-secondary {
-            background: #e2e8f0;
-            color: #4a5568;
+            background: var(--accent-orange);
+            color: white;
+            border-radius: 25px;
         }
 
         .btn-secondary:hover {
-            background: #cbd5e0;
+            background: #E64A19;
+            transform: translateY(-1px);
         }
 
         .btn:disabled {
@@ -270,7 +285,7 @@
         .score-value {
             font-size: 48px;
             font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -322,7 +337,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
             transition: width 0.5s ease;
         }
 
@@ -355,7 +370,7 @@
             content: "▸";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--primary-green);
         }
 
         .loading {
@@ -365,7 +380,7 @@
 
         .spinner {
             border: 3px solid #f3f4f6;
-            border-top: 3px solid #667eea;
+            border-top: 3px solid var(--primary-green);
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -425,36 +440,32 @@
         <!-- Header -->
         <div class="header">
             <div class="company-logo">
-                <span style="font-size: 24px; font-weight: bold;">AI LAB</span>
-                <span style="font-size: 20px;">×</span>
-                <span style="font-size: 24px; font-weight: bold;">IpotekaBank</span>
+                <div style="font-size: 36px; font-weight: bold; color: white;">ipotekabank</div>
+                <div style="font-size: 14px; opacity: 0.8; margin-top: 5px;">otp group</div>
             </div>
-            <h1>🏆 Промпт Арена</h1>
-            <p>Покажи свое мастерство в создании промптов!</p>
+            <h1>🤖 AI Тренажёр</h1>
+            <p>Освойте искусство создания эффективных промптов</p>
         </div>
 
         <!-- Setup State -->
         <div id="setupState" class="card">
             <div class="api-setup">
-                <h2 style="margin-bottom: 20px;">🚀 Начнем игру!</h2>
-                <div class="input-group">
-                    <label>🔑 OpenAI API ключ</label>
-                    <input type="password" id="apiKey" placeholder="sk-..." />
-                </div>
+                <h2 style="margin-bottom: 20px;">🚀 Добро пожаловать в AI Тренажёр!</h2>
                 <div class="input-group">
                     <label>👤 Ваше имя</label>
                     <input type="text" id="userName" placeholder="Введите ваше имя" />
                 </div>
-                <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    <p><strong>📋 Правила:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>У вас есть 10 минут на выполнение заданий</li>
-                        <li>Чем лучше ваши промпты, тем больше баллов</li>
-                        <li>Победитель получит годовую подписку на Perplexity! 🎁</li>
+                <div style="background: #e8f5e8; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 2px solid var(--primary-green);">
+                    <p style="color: var(--dark-gray);"><strong>📝 О тренажёре:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-gray);">
+                        <li>Пройдите 3 последовательных задания</li>
+                        <li>Каждое задание оценивается по 100-балльной шкале</li>
+                        <li>Получите персональную обратную связь по каждому промпту</li>
+                        <li>Изучите лучшие практики создания промптов</li>
                     </ul>
                 </div>
-                <button class="btn btn-primary" onclick="startGame()">
-                    <span>🎮</span> Начать игру
+                <button class="btn btn-primary" onclick="startTraining()" style="padding: 15px 30px; font-size: 16px;">
+                    <span>🎯</span> Начать тренировку
                 </button>
             </div>
         </div>
@@ -472,42 +483,17 @@
                 <div class="stat-label">Серия</div>
             </div>
             <div class="stat-item">
-                <div class="stat-icon">🛡️</div>
-                <div class="stat-value" id="levelValue">1</div>
-                <div class="stat-label">Уровень</div>
+                <div class="stat-icon">📋</div>
+                <div class="stat-value" id="taskValue">1</div>
+                <div class="stat-label">Задание</div>
             </div>
             <div class="stat-item">
-                <div class="stat-icon">⏱️</div>
-                <div class="stat-value timer" id="timerValue">10:00</div>
-                <div class="stat-label">Время</div>
+                <div class="stat-icon">🏆</div>
+                <div class="stat-value" id="totalScore">0</div>
+                <div class="stat-label">Общий счёт</div>
             </div>
         </div>
 
-        <!-- Menu State -->
-        <div id="menuState" class="card hidden">
-            <h2 style="text-align: center; margin-bottom: 30px;">🧠 Выберите уровень сложности</h2>
-            <div class="level-select">
-                <div class="level-card level-basic" onclick="selectLevel(1)">
-                    <div style="font-size: 48px; margin-bottom: 10px;">✨</div>
-                    <h3>Базовый</h3>
-                    <p style="font-size: 14px; color: #718096;">Основы промптинга</p>
-                </div>
-                <div class="level-card level-advanced" onclick="selectLevel(2)">
-                    <div style="font-size: 48px; margin-bottom: 10px;">🎯</div>
-                    <h3>Продвинутый</h3>
-                    <p style="font-size: 14px; color: #718096;">Сложные задачи</p>
-                </div>
-                <div class="level-card level-expert" onclick="selectLevel(3)">
-                    <div style="font-size: 48px; margin-bottom: 10px;">🏆</div>
-                    <h3>Эксперт</h3>
-                    <p style="font-size: 14px; color: #718096;">Мастер-класс</p>
-                </div>
-            </div>
-            <div id="achievements" class="hidden" style="text-align: center; margin-top: 20px;">
-                <h3>🏅 Ваши достижения</h3>
-                <div id="achievementsList" style="margin-top: 10px;"></div>
-            </div>
-        </div>
 
         <!-- Playing State -->
         <div id="playingState" class="card hidden">
@@ -519,12 +505,9 @@
                     <span id="charCount">0</span> символов
                 </p>
             </div>
-            <div style="display: flex; gap: 10px;">
-                <button class="btn btn-primary" onclick="evaluatePrompt()" id="submitBtn">
-                    <span>⚡</span> Отправить на проверку
-                </button>
-                <button class="btn btn-secondary" onclick="showMenu()">
-                    Назад
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn btn-primary" onclick="evaluatePrompt()" id="submitBtn" style="padding: 15px 30px; font-size: 16px;">
+                    <span>⚡</span> Отправить на оценку
                 </button>
             </div>
         </div>
@@ -542,12 +525,9 @@
         <div id="resultsState" class="card hidden">
             <h2 style="text-align: center; margin-bottom: 30px;">📊 Результаты оценки</h2>
             <div id="evaluationResults"></div>
-            <div style="display: flex; gap: 10px; margin-top: 20px;">
-                <button class="btn btn-primary" onclick="nextChallenge()">
-                    <span>🔄</span> Новое задание
-                </button>
-                <button class="btn btn-secondary" onclick="showMenu()">
-                    Главное меню
+            <div style="display: flex; gap: 10px; margin-top: 20px; justify-content: center;">
+                <button class="btn btn-primary" onclick="nextTask()" id="nextBtn" style="padding: 15px 30px; font-size: 16px;">
+                    <span>➡️</span> Следующее задание
                 </button>
             </div>
         </div>
@@ -556,10 +536,11 @@
         <div id="finalState" class="card hidden">
             <div class="final-results">
                 <div class="trophy-icon">🏆</div>
-                <h1>Время вышло!</h1>
+                <h1>Поздравляем!</h1>
+                <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-gray);">Вы успешно завершили все задания тренажёра!</p>
                 <div id="finalScore" style="margin: 20px 0;"></div>
-                <button class="btn btn-primary" onclick="location.reload()">
-                    <span>🔄</span> Начать заново
+                <button class="btn btn-primary" onclick="location.reload()" style="padding: 15px 30px; font-size: 16px;">
+                    <span>🔄</span> Пройти заново
                 </button>
             </div>
         </div>
@@ -567,79 +548,39 @@
 
     <script>
         // Game State
+        const API_KEY = 'YOUR_OPENAI_API_KEY_HERE'; // Replace with your actual API key
+        
         let gameState = {
-            apiKey: '',
             userName: '',
             currentState: 'setup',
-            currentChallenge: null,
-            score: 0,
-            level: 1,
-            streak: 0,
-            timeLeft: 600,
-            completedChallenges: [],
-            achievements: []
+            currentTask: 1,
+            taskScores: [],
+            totalScore: 0,
+            currentTaskData: null
         };
 
-        // Timer
-        let timerInterval;
 
-        // Challenges Database
-        const challenges = {
-            1: [
-                {
-                    id: 1,
-                    title: "Анализ клиентских жалоб",
-                    task: "Попроси AI проанализировать жалобы клиентов банка и выделить ключевые проблемы",
-                    difficulty: "Базовый уровень",
-                    hints: ["Укажи формат вывода", "Попроси приоритизировать", "Определи количество категорий"],
-                    expertPrompt: "Проанализируй жалобы клиентов банка за последний месяц и выдели 5 основных категорий проблем. Для каждой категории укажи: название, количество жалоб, критичность (высокая/средняя/низкая), рекомендуемые действия. Представь результат в виде структурированного списка с приоритизацией по критичности."
-                },
-                {
-                    id: 2,
-                    title: "Создание email-рассылки",
-                    task: "Создай промпт для написания email о новом банковском продукте для корпоративных клиентов",
-                    difficulty: "Базовый уровень",
-                    hints: ["Определи целевую аудиторию", "Укажи тон письма", "Задай структуру"],
-                    expertPrompt: "Напиши деловое email-письмо для руководителей малого и среднего бизнеса о запуске нового кредитного продукта 'Бизнес-Старт'. Тон: профессиональный, но дружелюбный. Структура: приветствие, проблема (сложности с финансированием), решение (наш продукт), 3 ключевых преимущества, призыв к действию. Объем: 150-200 слов."
-                },
-                {
-                    id: 3,
-                    title: "Упрощение документа",
-                    task: "Попроси AI переписать сложный банковский регламент простым языком для клиентов",
-                    difficulty: "Базовый уровень",
-                    hints: ["Укажи целевую аудиторию", "Определи уровень упрощения", "Сохрани ключевую информацию"],
-                    expertPrompt: "Перепиши банковский регламент по оформлению ипотеки простым языком для обычных клиентов без финансового образования. Сохрани всю важную информацию, но убери сложные термины. Используй короткие предложения, добавь примеры где нужно. Структурируй текст с подзаголовками. Целевая длина: 60-70% от оригинала."
-                }
-            ],
-            2: [
-                {
-                    id: 4,
-                    title: "Анализ конкурентов",
-                    task: "Создай промпт для сравнительного анализа банковских продуктов конкурентов",
-                    difficulty: "Продвинутый уровень",
-                    hints: ["Задай критерии сравнения", "Укажи формат таблицы", "Попроси выводы"],
-                    expertPrompt: "Выступи в роли аналитика банковского рынка. Сравни депозитные продукты 5 крупнейших банков по критериям: процентная ставка, минимальная сумма, срок, возможность пополнения, досрочное снятие, дополнительные бонусы. Представь данные в виде сравнительной таблицы. В конце сделай вывод о позиционировании каждого банка и дай 3 рекомендации для улучшения нашего продукта."
-                },
-                {
-                    id: 5,
-                    title: "Презентация для руководства",
-                    task: "Попроси AI создать структуру презентации квартальных результатов для совета директоров",
-                    difficulty: "Продвинутый уровень",
-                    hints: ["Определи ключевые метрики", "Задай визуальные элементы", "Укажи выводы"],
-                    expertPrompt: "Создай детальную структуру презентации квартальных результатов банка для совета директоров (10-12 слайдов). Включи: титульный слайд, ключевые показатели (выручка, прибыль, ROE, NPL), сравнение с планом и прошлым годом, анализ по сегментам, топ-5 достижений, основные риски, план действий на следующий квартал. Для каждого слайда укажи заголовок, ключевые данные и тип визуализации (график/таблица/диаграмма)."
-                }
-            ],
-            3: [
-                {
-                    id: 6,
-                    title: "Стратегический анализ",
-                    task: "Создай промпт для анализа возможностей цифровой трансформации банка",
-                    difficulty: "Экспертный уровень",
-                    hints: ["Учти тренды рынка", "Оцени риски и возможности", "Предложи roadmap"],
-                    expertPrompt: "Проведи стратегический анализ возможностей цифровой трансформации регионального банка. Структура анализа: 1) Оценка текущей цифровой зрелости (по 5 ключевым областям), 2) Анализ лучших практик топ-3 цифровых банков, 3) SWOT-анализ цифровизации, 4) Приоритетные направления трансформации с обоснованием, 5) Roadmap на 2 года с квартальными вехами, 6) Необходимые инвестиции и ожидаемый ROI. Учти специфику региональных банков и ограниченные ресурсы."
-                }
-            ]
-        };
+        // Tasks Database - Sequential flow
+        const tasks = [
+            {
+                id: 1,
+                title: "Анализ клиентских жалоб",
+                task: "Создайте промпт, который попросит AI проанализировать жалобы клиентов банка и выделить ключевые проблемы с рекомендациями по их решению.",
+                expertPrompt: "Проанализируй жалобы клиентов банка за последний месяц и выдели 5 основных категорий проблем. Для каждой категории укажи: название, количество жалоб, критичность (высокая/средняя/низкая), рекомендуемые действия. Представь результат в виде структурированного списка с приоритизацией по критичности."
+            },
+            {
+                id: 2,
+                title: "Создание маркетингового контента",
+                task: "Напишите промпт для создания продающего email-письма о новом банковском продукте для корпоративных клиентов.",
+                expertPrompt: "Напиши деловое email-письмо для руководителей малого и среднего бизнеса о запуске нового кредитного продукта 'Бизнес-Старт'. Тон: профессиональный, но дружелюбный. Структура: приветствие, проблема (сложности с финансированием), решение (наш продукт), 3 ключевых преимущества, призыв к действию. Объем: 150-200 слов."
+            },
+            {
+                id: 3,
+                title: "Стратегический анализ",
+                task: "Разработайте промпт для создания стратегического анализа возможностей цифровой трансформации банка с конкретными рекомендациями.",
+                expertPrompt: "Проведи стратегический анализ возможностей цифровой трансформации регионального банка. Структура анализа: 1) Оценка текущей цифровой зрелости (по 5 ключевым областям), 2) Анализ лучших практик топ-3 цифровых банков, 3) SWOT-анализ цифровизации, 4) Приоритетные направления трансформации с обоснованием, 5) Roadmap на 2 года с квартальными вехами, 6) Необходимые инвестиции и ожидаемый ROI. Учти специфику региональных банков и ограниченные ресурсы."
+            }
+        ];
 
         // UI Functions
         function showState(state) {
@@ -654,93 +595,56 @@
         }
 
         function updateStats() {
-            document.getElementById('scoreValue').textContent = gameState.score;
-            document.getElementById('streakValue').textContent = gameState.streak;
-            document.getElementById('levelValue').textContent = gameState.level;
-            document.getElementById('timerValue').textContent = formatTime(gameState.timeLeft);
+            document.getElementById('scoreValue').textContent = gameState.taskScores.length > 0 ? gameState.taskScores[gameState.taskScores.length - 1] : 0;
+            document.getElementById('streakValue').textContent = gameState.taskScores.filter(score => score >= 80).length;
+            document.getElementById('taskValue').textContent = gameState.currentTask;
+            document.getElementById('totalScore').textContent = gameState.totalScore;
         }
 
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${mins}:${secs.toString().padStart(2, '0')}`;
-        }
 
         // Game Functions
-        function startGame() {
-            const apiKey = document.getElementById('apiKey').value.trim();
+        function startTraining() {
             const userName = document.getElementById('userName').value.trim();
             
-            if (!apiKey || !userName) {
-                alert('Пожалуйста, введите API ключ и ваше имя');
+            if (!userName) {
+                alert('Пожалуйста, введите ваше имя');
                 return;
             }
             
-            gameState.apiKey = apiKey;
             gameState.userName = userName;
-            gameState.currentState = 'menu';
+            gameState.currentState = 'playing';
+            gameState.currentTask = 1;
             
-            showState('menu');
-            startTimer();
-            
-            if (gameState.achievements.length > 0) {
-                showAchievements();
-            }
-        }
-
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                if (gameState.timeLeft > 0) {
-                    gameState.timeLeft--;
-                    updateStats();
-                    
-                    if (gameState.timeLeft === 0) {
-                        endGame();
-                    }
-                } else {
-                    clearInterval(timerInterval);
-                }
-            }, 1000);
-        }
-
-        function selectLevel(level) {
-            gameState.level = level;
-            const levelChallenges = challenges[level];
-            const availableChallenges = levelChallenges.filter(c => !gameState.completedChallenges.includes(c.id));
-            
-            if (availableChallenges.length === 0) {
-                alert('Вы уже выполнили все задания этого уровня!');
-                return;
-            }
-            
-            const randomChallenge = availableChallenges[Math.floor(Math.random() * availableChallenges.length)];
-            gameState.currentChallenge = randomChallenge;
-            
-            showChallenge();
+            loadCurrentTask();
             showState('playing');
         }
-
-        function showChallenge() {
-            const challenge = gameState.currentChallenge;
-            let hintsHTML = '';
-            
-            if (challenge.hints && challenge.hints.length > 0) {
-                hintsHTML = `
-                    <div class="hints-box">
-                        <h4>💡 Подсказки:</h4>
-                        <ul class="result-list">
-                            ${challenge.hints.map(hint => `<li>${hint}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
+        
+        function loadCurrentTask() {
+            if (gameState.currentTask <= tasks.length) {
+                gameState.currentTaskData = tasks[gameState.currentTask - 1];
+                showTask();
+                updateStats();
+            } else {
+                // All tasks completed
+                gameState.totalScore = gameState.taskScores.reduce((sum, score) => sum + score, 0);
+                showFinalResults();
             }
+        }
+
+
+
+        function showTask() {
+            const task = gameState.currentTaskData;
             
             document.getElementById('challengeInfo').innerHTML = `
-                <div class="challenge-box">
-                    <span class="achievement-badge">${challenge.difficulty}</span>
-                    <h3 style="margin: 15px 0;">${challenge.title}</h3>
-                    <p>${challenge.task}</p>
-                    ${hintsHTML}
+                <div class="challenge-box" style="background: linear-gradient(135deg, rgba(124, 179, 66, 0.1), rgba(139, 195, 74, 0.1)); border: 2px solid var(--primary-green); border-radius: 15px;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="background: var(--primary-green); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px;">
+                            ${task.id}
+                        </div>
+                        <h3 style="margin: 0; color: var(--dark-gray); font-size: 24px;">${task.title}</h3>
+                    </div>
+                    <p style="font-size: 16px; line-height: 1.6; color: var(--text-gray);">${task.task}</p>
                 </div>
             `;
             
@@ -767,11 +671,11 @@
             try {
                 const evaluationPrompt = `Оцени качество промпта для задачи. Верни ТОЛЬКО валидный JSON объект без markdown разметки.
 
-ЗАДАЧА: ${gameState.currentChallenge.task}
+ЗАДАЧА: ${gameState.currentTaskData.task}
 
 ПРОМПТ ПОЛЬЗОВАТЕЛЯ: "${userPrompt}"
 
-ЭТАЛОННЫЙ ПРОМПТ: "${gameState.currentChallenge.expertPrompt}"
+ЭТАЛОННЫЙ ПРОМПТ: "${gameState.currentTaskData.expertPrompt}"
 
 Верни JSON в формате:
 {
@@ -787,7 +691,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${gameState.apiKey}`
+                        'Authorization': `Bearer ${API_KEY}`
                     },
                     body: JSON.stringify({
                         model: 'gpt-4o-mini',
@@ -814,15 +718,8 @@
                 const content = data.choices[0].message.content;
                 const evaluation = JSON.parse(content);
                 
-                gameState.score += evaluation.score;
-                gameState.completedChallenges.push(gameState.currentChallenge.id);
-                
-                if (evaluation.score >= 80) {
-                    gameState.streak++;
-                    checkAchievements(evaluation.score);
-                } else {
-                    gameState.streak = 0;
-                }
+                gameState.taskScores.push(evaluation.score);
+                gameState.totalScore += evaluation.score;
                 
                 updateStats();
                 showResults(evaluation);
@@ -879,70 +776,89 @@
                     
                     <div class="result-section" style="background: #f3f4f6;">
                         <h3>🏆 Эталонный промпт:</h3>
-                        <p style="font-style: italic; background: white; padding: 10px; border-radius: 6px;">
-                            ${gameState.currentChallenge.expertPrompt}
+                        <p style="font-style: italic; background: white; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                            ${gameState.currentTaskData.expertPrompt}
                         </p>
                     </div>
                 </div>
             `;
             
             document.getElementById('evaluationResults').innerHTML = html;
+            
+            // Update button text and action for last task
+            if (gameState.currentTask >= tasks.length) {
+                document.getElementById('nextBtn').innerHTML = '<span>🏆</span> Посмотреть результаты';
+                document.getElementById('nextBtn').setAttribute('onclick', 'showFinalResults()');
+            } else {
+                document.getElementById('nextBtn').innerHTML = '<span>➡️</span> Следующее задание';
+                document.getElementById('nextBtn').setAttribute('onclick', 'nextTask()');
+            }
+            
             showState('results');
         }
 
-        function checkAchievements(score) {
-            if (score === 100 && !gameState.achievements.includes('perfect')) {
-                gameState.achievements.push('perfect');
-            }
-            if (gameState.streak === 3 && !gameState.achievements.includes('streak3')) {
-                gameState.achievements.push('streak3');
-            }
-            if (gameState.score > 500 && !gameState.achievements.includes('master')) {
-                gameState.achievements.push('master');
+
+
+        function nextTask() {
+            gameState.currentTask++;
+            loadCurrentTask();
+            if (gameState.currentTask <= tasks.length) {
+                showState('playing');
             }
         }
 
-        function showAchievements() {
-            const achievementsMap = {
-                'perfect': '⭐ Идеальный промпт',
-                'streak3': '🔥 Серия из 3 побед',
-                'master': '👑 Мастер промптов'
-            };
+
+        function showFinalResults() {
+            // Ensure totalScore is correctly calculated
+            gameState.totalScore = gameState.taskScores.reduce((sum, score) => sum + score, 0);
+            const avgScore = Math.round(gameState.totalScore / tasks.length);
+            const perfectScores = gameState.taskScores.filter(score => score === 100).length;
+            const goodScores = gameState.taskScores.filter(score => score >= 80).length;
             
-            const html = gameState.achievements
-                .map(a => `<span class="achievement-badge">${achievementsMap[a]}</span>`)
-                .join('');
+            let performanceText = '';
+            let performanceColor = '';
             
-            document.getElementById('achievementsList').innerHTML = html;
-            document.getElementById('achievements').classList.remove('hidden');
-        }
-
-        function nextChallenge() {
-            selectLevel(gameState.level);
-        }
-
-        function showMenu() {
-            showState('menu');
-            if (gameState.achievements.length > 0) {
-                showAchievements();
+            if (avgScore >= 90) {
+                performanceText = 'Отлично! Вы мастер промптинга!';
+                performanceColor = 'var(--primary-green)';
+            } else if (avgScore >= 70) {
+                performanceText = 'Хорошо! У вас есть потенциал!';
+                performanceColor = 'var(--accent-orange)';
+            } else {
+                performanceText = 'Есть над чем работать, но это нормально!';
+                performanceColor = 'var(--text-gray)';
             }
-        }
-
-        function endGame() {
-            clearInterval(timerInterval);
             
             const html = `
-                <h2 style="font-size: 48px; color: #667eea; margin-bottom: 10px;">
-                    ${gameState.score} баллов
+                <h2 style="font-size: 42px; color: var(--primary-green); margin-bottom: 15px;">
+                    ${gameState.totalScore} баллов
                 </h2>
-                <p style="font-size: 24px; color: #4a5568;">${gameState.userName}</p>
-                ${gameState.score >= 250 ? `
-                    <div style="background: #fef3c7; padding: 20px; border-radius: 8px; margin-top: 20px;">
-                        <p style="font-size: 18px; color: #92400e;">
-                            🎉 Отличный результат! Вы показали высокий уровень владения промптингом!
-                        </p>
+                <p style="font-size: 20px; color: var(--text-gray); margin-bottom: 10px;">${gameState.userName}</p>
+                <p style="font-size: 16px; color: ${performanceColor}; margin-bottom: 25px;">${performanceText}</p>
+                
+                <div style="background: white; padding: 25px; border-radius: 15px; margin: 25px 0; border: 2px solid var(--border-gray);">
+                    <h3 style="margin-bottom: 15px; color: var(--dark-gray);">📊 Детальные результаты:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; text-align: left;">
+                        <div>
+                            <strong>Средний балл:</strong> ${avgScore}/100
+                        </div>
+                        <div>
+                            <strong>Идеальных оценок:</strong> ${perfectScores}/3
+                        </div>
+                        <div>
+                            <strong>Хороших оценок (80+):</strong> ${goodScores}/3
+                        </div>
+                        <div>
+                            <strong>Общий счёт:</strong> ${gameState.totalScore}/300
+                        </div>
                     </div>
-                ` : ''}
+                </div>
+                
+                <div style="background: var(--light-gray); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <p style="color: var(--text-gray); font-size: 14px; text-align: center;">
+                        Спасибо за участие в AI тренажёре! Продолжайте развивать навыки работы с AI.
+                    </p>
+                </div>
             `;
             
             document.getElementById('finalScore').innerHTML = html;
@@ -951,6 +867,9 @@
 
         // Event Listeners
         document.getElementById('userPrompt').addEventListener('input', updateCharCount);
+        
+        // Initialize
+        updateStats();
     </script>
 </body>
 </html>
